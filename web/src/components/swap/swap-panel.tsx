@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import { Repeat2, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WalletControl } from "@/components/layout/wallet-control";
@@ -102,7 +103,7 @@ export function SwapPanel() {
           <TokenSelector selectedToken={inputToken} onSelect={(token) => selectToken("input", token)} />
         </div>
         <div className="amount-subline">
-          <span>{selectedInputToken.mark} {selectedInputToken.symbol}</span>
+          <span className="token-subline"><Image src={selectedInputToken.logo} alt="" aria-hidden="true" width={14} height={14} />{selectedInputToken.symbol}</span>
           <span>{selectedInputToken.network}</span>
         </div>
       </div>
@@ -120,7 +121,7 @@ export function SwapPanel() {
           <TokenSelector selectedToken={outputToken} onSelect={(token) => selectToken("output", token)} />
         </div>
         <div className="amount-subline">
-          <span>{selectedOutputToken.mark} {selectedOutputToken.symbol}</span>
+          <span className="token-subline"><Image src={selectedOutputToken.logo} alt="" aria-hidden="true" width={14} height={14} />{selectedOutputToken.symbol}</span>
           <span>{selectedOutputToken.network}</span>
         </div>
       </div>

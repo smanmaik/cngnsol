@@ -111,8 +111,11 @@
 .amount-input::placeholder { color: #c2cbc4; }
 .token-select { flex: 0 0 auto; display: flex; align-items: center; gap: 8px; min-width: 115px; border: 0; border-radius: 999px; padding: 7px 10px 7px 7px; background: #eef3ee; color: #23382b; font-size: 12px; font-weight: 700; }
 .token-select > svg { width: 13px; height: 13px; color: #66776c; }
-.token-mark { width: 27px; height: 27px; display: grid; place-items: center; border-radius: 50%; color: #fff; background: #15845e; font-size: 15px; font-weight: 600; }
-.token-mark-sol { color: #fff; background: #43295e; }
+.token-mark { width: 27px; height: 27px; flex: 0 0 auto; display: grid; place-items: center; overflow: hidden; border-radius: 50%; background: #eee8fb; }
+.token-mark img { width: 68%; height: 68%; object-fit: contain; }
+.token-mark-sol { background: #24212d; }
+.token-subline { display: inline-flex; align-items: center; gap: 5px; }
+.token-subline img { width: 14px; height: 14px; object-fit: contain; }
 .amount-subline { margin-top: 9px; display: flex; justify-content: space-between; color: #99a39c; font-size: 10px; }
 .swap-direction { position: relative; height: 1px; margin: 17px 0; background: #edf0ed; }
 .swap-direction button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 36px; height: 36px; display: grid; place-items: center; border: 4px solid #fff; border-radius: 50%; background: #edf3ee; color: #16734f; }

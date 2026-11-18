@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ChevronDown, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -35,9 +36,9 @@ export function TokenSelector({ selectedToken, onSelect }: Props) {
         className="token-select"
         onClick={() => setOpen(true)}
       >
-        <div className={`token-mark ${selectedToken === "sol" ? "token-mark-sol" : ""}`}>
-          {selected.mark}
-        </div>
+        <span className={`token-mark ${selectedToken === "sol" ? "token-mark-sol" : ""}`}>
+          <Image src={selected.logo} alt="" aria-hidden="true" width={20} height={20} />
+        </span>
         {selected.symbol}
         <ChevronDown />
       </Button>
@@ -66,9 +67,9 @@ export function TokenSelector({ selectedToken, onSelect }: Props) {
                   setOpen(false);
                 }}
               >
-                <div className={`token-mark ${token.id === "sol" ? "token-mark-sol" : ""}`}>
-                  {token.mark}
-                </div>
+                <span className={`token-mark ${token.id === "sol" ? "token-mark-sol" : ""}`}>
+                  <Image src={token.logo} alt="" aria-hidden="true" width={20} height={20} />
+                </span>
                 <div className="flex-1 min-w-0">
                   <div className="font-semibold text-sm">{token.symbol}</div>
                   <div className="text-xs text-muted-foreground">{token.name} · Balance {formatUnits(token.id === "sol" ? balances?.solLamports ?? null : balances?.cngnRaw ?? null, token.id === "sol" ? 9 : balances?.cngnDecimals ?? null)}</div>

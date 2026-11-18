@@ -7,7 +7,7 @@ export type TokenConfig = {
   symbol: string;
   decimals: number | null;
   mint: string | null;
-  logo: string | null;
+  logo: string;
   mark: string;
   network: string;
 };
@@ -21,7 +21,7 @@ export const tokens: Record<TokenId, TokenConfig> = {
     symbol: "cNGN",
     decimals: null,
     mint: process.env.NEXT_PUBLIC_CNGN_MINT || null,
-    logo: null,
+    logo: "/tokens/cngn.png",
     mark: "₦",
     network: network.label,
   },
@@ -31,7 +31,7 @@ export const tokens: Record<TokenId, TokenConfig> = {
     symbol: "SOL",
     decimals: 9,
     mint: null,
-    logo: null,
+    logo: "/tokens/solana.svg",
     mark: "◎",
     network: network.label,
   },
