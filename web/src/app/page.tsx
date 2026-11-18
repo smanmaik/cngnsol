@@ -1,3 +1,4 @@
+import { MarketOverview } from "@/components/market/market-overview";
 import { SwapPanel } from "@/components/swap/swap-panel";
 
 export default function HomePage() {
@@ -27,6 +28,7 @@ export default function HomePage() {
         <div><span className="strip-icon">⌁</span><div><strong>Non-custodial</strong><span>You control your wallet</span></div></div>
         <div><span className="strip-icon">↗</span><div><strong>Onchain activity</strong><span>Verifiable on Explorer</span></div></div>
       </section>
+      <MarketOverview />
       <section className="below-fold">
         <div>
           <p className="section-kicker">A clearer way to move value</p>
