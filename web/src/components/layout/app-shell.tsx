@@ -17,7 +17,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   return (
     <div className="app-frame">
       <header className="topbar">
-        <Link href="/" className="brand" aria-label="AI HUB cNGN Swap home">
+        <Link href="/" className="brand" aria-label="To Naira cNGN Swap home">
           <Image
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/file_00000000765081f48e43077edec9ccbd%281%29-dAJyvu5rELrsCHpqrtKrYKcE6OGa9l.png"
             alt=""
@@ -26,7 +26,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             unoptimized
             className="brand-image"
           />
-          <span className="brand-type"><strong>AI HUB</strong><small>cNGN SWAP</small></span>
+          <span className="brand-type"><strong>To Naira</strong><small>cNGN SWAP</small></span>
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
           {navigation.map(({ href, label, icon: Icon }) => (
@@ -47,7 +47,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           height={38}
           unoptimized
           className="footer-logo"
-        /><div><strong>AI HUB</strong><span>Building useful technology for Africa.</span></div></div>
+        /><div><strong>To Naira</strong><span>Building useful technology for Africa.</span></div></div>
         <div className="footer-links">
           <Link href="/docs"><BookOpen />Documentation</Link>
           <a href="https://github.com/smanmaik/cngnsol" target="_blank" rel="noreferrer"><Code2 />Program repository <ArrowUpRight /></a>
