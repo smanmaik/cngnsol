@@ -40,7 +40,14 @@ export function AppShell({ children }: { children: ReactNode }) {
       </header>
       {children}
       <footer className="footer">
-        <div className="footer-brand"><span className="footer-mark">AI</span><div><strong>AI HUB</strong><span>Building useful technology for Africa.</span></div></div>
+        <div className="footer-brand"><Image
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/file_00000000765081f48e43077edec9ccbd%281%29-dAJyvu5rELrsCHpqrtKrYKcE6OGa9l.png"
+          alt=""
+          width={42}
+          height={38}
+          unoptimized
+          className="footer-logo"
+        /><div><strong>AI HUB</strong><span>Building useful technology for Africa.</span></div></div>
         <div className="footer-links">
           <Link href="/docs"><BookOpen />Documentation</Link>
           <a href="https://github.com/smanmaik/cngnsol" target="_blank" rel="noreferrer"><Code2 />Program repository <ArrowUpRight /></a>

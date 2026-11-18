@@ -141,6 +141,7 @@
 .footer { width: min(1152px, calc(100% - 64px)); min-height: 110px; margin: auto auto 0; padding: 26px 0; display: flex; align-items: center; justify-content: space-between; gap: 22px; border-top: 1px solid #e6eae5; }
 .footer-brand { display: flex; align-items: center; gap: 10px; }
 .footer-mark { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 9px; background: #126b4d; color: #fff; font-size: 10px; font-weight: 750; }
+.footer-logo { width: 38px; height: 34px; flex: 0 0 auto; object-fit: contain; }
 .footer-brand div { display: flex; flex-direction: column; gap: 3px; }
 .footer-brand strong { font-size: 11px; letter-spacing: .12em; }
 .footer-brand span:not(.footer-mark) { color: #88938b; font-size: 10px; }
