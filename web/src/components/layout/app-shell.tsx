@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, BookOpen, Code2, LayoutDashboard, ReceiptText, Repeat2, WalletCards } from "lucide-react";
 import type { ReactNode } from "react";
@@ -17,7 +18,14 @@ export function AppShell({ children }: { children: ReactNode }) {
     <div className="app-frame">
       <header className="topbar">
         <Link href="/" className="brand" aria-label="AI HUB cNGN Swap home">
-          <span className="brand-mark"><span>AI</span></span>
+          <Image
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/file_00000000765081f48e43077edec9ccbd%281%29-dAJyvu5rELrsCHpqrtKrYKcE6OGa9l.png"
+            alt=""
+            width={44}
+            height={40}
+            unoptimized
+            className="brand-image"
+          />
           <span className="brand-type"><strong>AI HUB</strong><small>cNGN SWAP</small></span>
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
