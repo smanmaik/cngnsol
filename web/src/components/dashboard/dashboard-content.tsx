@@ -7,10 +7,28 @@ import { formatUnits } from "@/lib/solana/format";
 import { getAddressExplorerUrl } from "@/lib/history/explorer";
 import { useConnectedWallet } from "@solana/kit-plugin-wallet/react";
 import { client } from "@/lib/solana/client";
+import { MarketOverview } from "@/components/market/market-overview";
+import { useMarketData } from "@/hooks/use-market-data";
+import { formatUsd } from "@/lib/market/format";
 
 export function DashboardContent() {
   const connected = useConnectedWallet(client);
   const { balances, isLoading, error } = useWalletBalance();
+  const { data: marketData, error: marketError, isLoading: marketLoading } = useMarketData();
+  const solPrice = marketData?.assets.find((asset) => asset.id === "solana")?.currentPriceUsd;
+  const cngnPrice = marketData?.assets.find((asset) => asset.id === "compliant-naira")?.currentPriceUsd;
+  const solAmount = balances ? Number(balances.solLamports) / 1_000_000_000 : null;
+  const cngnAmount =
+    balances && balances.cngnRaw !== null && balances.cngnDecimals !== null
+      ? Number(balances.cngnRaw) / 10 ** balances.cngnDecimals
+      : null;
+  const portfolioValueUsd =
+    solAmount !== null &&
+    cngnAmount !== null &&
+    solPrice !== undefined &&
+    cngnPrice !== undefined
+      ? solAmount * solPrice + cngnAmount * cngnPrice
+      : null;
 
   if (!connected) {
     return (
@@ -36,6 +54,8 @@ export function DashboardContent() {
         </div>
       </div>
 
+      <MarketOverview />
+
       <div className="content-grid">
         <section className="surface">
           <div className="surface-pad">
@@ -53,8 +73,27 @@ export function DashboardContent() {
                 <span className="balance-caption">Nigerian Naira</span>
               </div>
             </div>
+            <div className="portfolio-value" aria-busy={isLoading || marketLoading}>
+              <div className="portfolio-value-copy">
+                <span>Estimated portfolio value</span>
+                <small>Wallet balances × live USD prices</small>
+              </div>
+              <strong>{isLoading || marketLoading ? "Loading…" : portfolioValueUsd === null ? "—" : formatUsd(portfolioValueUsd)}</strong>
+            </div>
             <div className="surface-alert">
-              <span>{error ? "Unable to load balances from Solana RPC. Check your connection and network configuration." : "Portfolio value is unavailable because no live price feed is configured."}</span>
+              <span>
+                {error
+                  ? "Unable to load balances from Solana RPC. Check your connection and network configuration."
+                  : isLoading
+                    ? "Loading wallet balances…"
+                    : marketError && !marketData
+                      ? "Unable to load live CoinGecko prices right now."
+                      : marketLoading
+                        ? "Loading live CoinGecko prices…"
+                        : portfolioValueUsd === null
+                          ? "A verified cNGN mint and live prices for both assets are required for a full portfolio value."
+                          : "Portfolio value combines SOL and cNGN balances using CoinGecko USD prices."}
+              </span>
             </div>
           </div>
         </section>

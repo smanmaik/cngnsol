@@ -147,6 +147,11 @@ export function DocsContent() {
                   <td>Solana Explorer</td>
                   <td>Custom block explorer URL</td>
                 </tr>
+                <tr>
+                  <td><code>key</code></td>
+                  <td>Required for market prices</td>
+                  <td>Server-side CoinGecko Demo API key</td>
+                </tr>
               </tbody>
             </table>
           </section>
@@ -165,7 +170,7 @@ export function DocsContent() {
           <section className="surface docs-section" id="deployment">
             <h2>Deployment</h2>
             <p>Deploy the <code>web</code> directory as the Vercel project root. Add the selected network, verified cNGN mint, program ID, RPC endpoint, and explorer URL in Vercel project environment settings before deploying.</p>
-            <p>Values prefixed with <code>NEXT_PUBLIC_</code> are shipped to browsers. Never put private RPC credentials, API tokens, or wallet secrets in them. Use a server-side proxy for any credentialed RPC endpoint.</p>
+            <p>Values prefixed with <code>NEXT_PUBLIC_</code> are shipped to browsers. Never put private RPC credentials, API tokens, or wallet secrets in them. The live market panel reads the CoinGecko Demo API key from the server-only <code>key</code> variable. Use a server-side proxy for any credentialed RPC endpoint.</p>
           </section>
 
           <section className="surface docs-section" id="security">
